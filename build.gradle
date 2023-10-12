@@ -1,3 +1,12 @@
 plugins {
     id "com.github.node-gradle.node" version "7.0.0"
 }
+task docsGeneration {
+  doLast {
+    def tsDocCommand = "typedoc --out docs src/main/typescript"
+    exec {
+      executable 'typedoc'
+      args tsDocCommand.split(' ')
+    }
+  }
+}
